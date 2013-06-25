@@ -1,4 +1,8 @@
 OpenResRails::Application.routes.draw do
+  get "home/index"
+
+  get "home/about"
+
   devise_for :users
 
   resources :functions
