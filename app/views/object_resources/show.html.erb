@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @object_resource.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @object_resource.description %>
+</p>
+
+<p>
+  <b>Tombamento:</b>
+  <%= @object_resource.tombamento %>
+</p>
+
+
+<%= link_to 'Edit', edit_object_resource_path(@object_resource) %> |
+<%= link_to 'Back', object_resources_path %>
