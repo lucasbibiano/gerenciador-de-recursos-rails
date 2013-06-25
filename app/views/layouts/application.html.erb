@@ -58,13 +58,24 @@
 
     <div class="container-fluid">
       <div class="row-fluid">
-        <div class="span3">
+        <div class="span2">
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
-              <li class="nav-header">Sidebar</li>
-              <li><%= link_to "Link1", "/path1"  %></li>
-              <li><%= link_to "Link2", "/path2"  %></li>
-              <li><%= link_to "Link3", "/path3"  %></li>
+              
+              <li class="nav-header">Menu</li>              
+              <!-- <li class="nav-sub-header">Insitucional</li> -->
+              <li><%= link_to "Home", "/dashboard"  %></li>
+              <li><%= link_to "Setores", "/sectors"  %></li>
+              <li><%= link_to "Funcionários", "/employees"  %></li>
+              <li><%= link_to "Funções", "/functions"  %></li>
+             <!--  <li class="nav-sub-header">Recursos</li> -->
+              <li><%= link_to "Reservas", "/reservations"  %></li>
+              <li><%= link_to "Lugares", "/places"  %></li>
+              <li><%= link_to "Serviços", "/services"  %></li>
+              <li><%= link_to "Tipos de sala", "/room_types"  %></li>      
+              
+              
+              
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
