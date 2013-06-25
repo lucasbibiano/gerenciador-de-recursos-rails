@@ -1,18 +1,5 @@
 OpenResRails::Application.routes.draw do
-  resources :reservations
-
-
-  resources :services
-
-
-  resources :object_resources
-
-
-  resources :places
-
-
-  resources :room_types
-
+  devise_for :users
 
   resources :functions
 
@@ -20,7 +7,20 @@ OpenResRails::Application.routes.draw do
   resources :sectors
 
 
-  devise_for :users
+  resources :room_types
+
+
+  resources :places
+
+
+  resources :object_resources
+
+
+  resources :services
+
+
+  resources :reservations
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,20 +1,25 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Reservation -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<p>
-  <b>Begin:</b>
-  <%= @reservation.begin %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:begin) %>:</strong></dt>
+  <dd><%= @reservation.begin %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:end) %>:</strong></dt>
+  <dd><%= @reservation.end %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:status) %>:</strong></dt>
+  <dd><%= @reservation.status %></dd>
+</dl>
 
-<p>
-  <b>End:</b>
-  <%= @reservation.end %>
-</p>
-
-<p>
-  <b>Status:</b>
-  <%= @reservation.status %>
-</p>
-
-
-<%= link_to 'Edit', edit_reservation_path(@reservation) %> |
-<%= link_to 'Back', reservations_path %>
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              reservations_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_reservation_path(@reservation), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              reservation_path(@reservation),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>

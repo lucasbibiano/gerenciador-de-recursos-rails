@@ -18,9 +18,9 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
 
-  gem 'bourbon'
+  gem 'bootstrap-sass', '~> 2.3.2.0'
 
-  gem 'neat'
+  gem 'bootswatch-rails'
 end
 
 gem 'jquery-rails'
