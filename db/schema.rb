@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(:version => 20130626014825) do
   end
 
   add_index "object_resources", ["slug"], :name => "index_object_resources_on_slug", :unique => true
+  add_index "object_resources", ["tombamento"], :name => "index_object_resources_on_tombamento", :unique => true
 
   create_table "object_resources_reservations", :id => false, :force => true do |t|
     t.integer "object_resource_id"
@@ -67,6 +68,7 @@ ActiveRecord::Schema.define(:version => 20130626014825) do
     t.datetime "updated_at",   :null => false
   end
 
+  add_index "places", ["code"], :name => "index_places_on_code", :unique => true
   add_index "places", ["slug"], :name => "index_places_on_slug", :unique => true
 
   create_table "places_services", :id => false, :force => true do |t|
