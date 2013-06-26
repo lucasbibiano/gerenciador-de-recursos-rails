@@ -10,6 +10,10 @@
   <dd><%= @service.description %></dd>
 </dl>
 
+<h3>Salas que dispõem do serviço</h3>
+
+<%= render "places/places_table", places: @service.places %>
+
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
               services_path, :class => 'btn'  %>

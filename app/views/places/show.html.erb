@@ -16,7 +16,15 @@
   <dd><%= @place.width %></dd>
   <dt><strong><%= model_class.human_attribute_name(:length) %>:</strong></dt>
   <dd><%= @place.length %></dd>
+
+  <!-- setor eh obrigatorio -->
+  <dt><strong><%= model_class.human_attribute_name(:sector) %>:</strong></dt>
+  <dd><%= @place.sector.name %></dd>
 </dl>
+
+<h3>Reservas associadas a este lugar</h3>
+
+<%= render "reservations/reservations_table", reservations: @place.reservations %>
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),

@@ -10,6 +10,10 @@
   <dd><%= @function.description %></dd>
 </dl>
 
+<h3>Usuários com esta função</h3>
+
+<%= render "users/users_table", users: @function.users %>
+
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
               functions_path, :class => 'btn'  %>

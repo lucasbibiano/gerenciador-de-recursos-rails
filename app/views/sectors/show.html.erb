@@ -10,6 +10,18 @@
   <dd><%= @sector.description %></dd>
 </dl>
 
+<h3>Lugares gerenciados por esse setor</h3>
+
+<%= render "places/places_table", places: @sector.places %>
+
+<h3>Objetos gerenciados por esse setor</h3>
+
+<%= render "object_resources/object_resources_table", object_resources: @sector.object_resources %>
+
+<h3>Usuários gerenciados por esse setor</h3>
+
+<%= render "users/users_table", users: @sector.users %>
+
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
               sectors_path, :class => 'btn'  %>

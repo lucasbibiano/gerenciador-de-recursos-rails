@@ -10,6 +10,10 @@
   <dd><%= @room_type.description %></dd>
 </dl>
 
+<h3>Salas desse tipo</h3>
+
+<%= render "places/places_table", places: @room_type.places %>
+
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
               room_types_path, :class => 'btn'  %>

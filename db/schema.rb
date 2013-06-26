@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130626004521) do
+ActiveRecord::Schema.define(:version => 20130626014825) do
 
   create_table "functions", :force => true do |t|
     t.string   "name"
@@ -43,6 +43,15 @@ ActiveRecord::Schema.define(:version => 20130626004521) do
 
   add_index "object_resources_reservations", ["object_resource_id", "reservation_id"], :name => "index1"
   add_index "object_resources_reservations", ["reservation_id"], :name => "index2"
+
+  create_table "permissions", :force => true do |t|
+    t.string   "action"
+    t.string   "subject_class"
+    t.integer  "subject_id"
+    t.integer  "function_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
 
   create_table "places", :force => true do |t|
     t.string   "name"

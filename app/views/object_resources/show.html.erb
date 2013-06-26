@@ -10,7 +10,19 @@
   <dd><%= @object_resource.description %></dd>
   <dt><strong><%= model_class.human_attribute_name(:tombamento) %>:</strong></dt>
   <dd><%= @object_resource.tombamento %></dd>
+
+  <dt><strong><%= model_class.human_attribute_name(:place) %>:</strong></dt>
+
+  <% if @object_resource.place %>
+    <dd><%= @object_resource.place.name %></dd>
+  <% else %>
+    <dd>Nenhum</dd>
+  <% end %>
 </dl>
+
+<h3>Reservas associadas a este objeto</h3>
+
+<%= render "reservations/reservations_table", reservations: @object_resource.reservations %>
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
