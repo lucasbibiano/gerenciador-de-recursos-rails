@@ -4,6 +4,8 @@ class CreateReservations < ActiveRecord::Migration
       t.datetime :begin
       t.datetime :end
       t.string :status
+      t.references :user
+      t.references :place
 
       t.timestamps
     end
