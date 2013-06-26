@@ -22,6 +22,10 @@
   <dd><%= @place.sector.name %></dd>
 </dl>
 
+<h3>Serviços disponíveis neste lugar</h3>
+
+<%= render "services/services_table", services: @place.services %>
+
 <h3>Reservas associadas a este lugar</h3>
 
 <%= render "reservations/reservations_table", reservations: @place.reservations %>

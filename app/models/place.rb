@@ -2,7 +2,13 @@ class Place < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name, use: :slugged
   
-  attr_accessible :capacity, :code, :description, :length, :name, :width
+  validates_presence_of :sector_id
+  validates_presence_of :room_type_id
+  validates_presence_of :code
+  validates_presence_of :name
+
+  attr_accessible :capacity, :code, :description, :length, :name, :width, :sector_id,
+                  :room_type_id, :service_ids
 
   belongs_to :sector
   belongs_to :room_type

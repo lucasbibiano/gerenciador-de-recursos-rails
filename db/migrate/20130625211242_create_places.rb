@@ -3,7 +3,7 @@ class CreatePlaces < ActiveRecord::Migration
     create_table :places do |t|
       t.string :name
       t.text :description
-      t.string :code
+      t.string :code, :unique => true
       t.integer :capacity
       t.integer :width
       t.integer :length
@@ -17,5 +17,6 @@ class CreatePlaces < ActiveRecord::Migration
     end
     
     add_index :places, :slug, :unique => true
+    add_index :places, :code, :unique => true
   end
 end

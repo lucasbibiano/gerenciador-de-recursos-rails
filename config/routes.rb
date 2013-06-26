@@ -1,4 +1,8 @@
 OpenResRails::Application.routes.draw do
+  get "user/dashboard"
+
+  get "user/index"
+
   get "home/index"
 
   get "home/about"
