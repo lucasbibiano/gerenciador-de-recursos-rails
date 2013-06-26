@@ -11,22 +11,38 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130625211456) do
+ActiveRecord::Schema.define(:version => 20130626004521) do
 
   create_table "functions", :force => true do |t|
     t.string   "name"
     t.text     "description"
+    t.string   "slug"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
+
+  add_index "functions", ["slug"], :name => "index_functions_on_slug", :unique => true
 
   create_table "object_resources", :force => true do |t|
     t.string   "name"
     t.text     "description"
     t.string   "tombamento"
+    t.integer  "sector_id"
+    t.integer  "place_id"
+    t.string   "slug"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
+
+  add_index "object_resources", ["slug"], :name => "index_object_resources_on_slug", :unique => true
+
+  create_table "object_resources_reservations", :id => false, :force => true do |t|
+    t.integer "object_resource_id"
+    t.integer "reservation_id"
+  end
+
+  add_index "object_resources_reservations", ["object_resource_id", "reservation_id"], :name => "index1"
+  add_index "object_resources_reservations", ["reservation_id"], :name => "index2"
 
   create_table "places", :force => true do |t|
     t.string   "name"
@@ -35,14 +51,29 @@ ActiveRecord::Schema.define(:version => 20130625211456) do
     t.integer  "capacity"
     t.integer  "width"
     t.integer  "length"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.integer  "room_type_id"
+    t.integer  "sector_id"
+    t.string   "slug"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
+
+  add_index "places", ["slug"], :name => "index_places_on_slug", :unique => true
+
+  create_table "places_services", :id => false, :force => true do |t|
+    t.integer "place_id"
+    t.integer "service_id"
+  end
+
+  add_index "places_services", ["place_id", "service_id"], :name => "index_places_services_on_place_id_and_service_id"
+  add_index "places_services", ["service_id"], :name => "index_places_services_on_service_id"
 
   create_table "reservations", :force => true do |t|
     t.datetime "begin"
     t.datetime "end"
     t.string   "status"
+    t.integer  "user_id"
+    t.integer  "place_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -50,23 +81,32 @@ ActiveRecord::Schema.define(:version => 20130625211456) do
   create_table "room_types", :force => true do |t|
     t.string   "name"
     t.text     "description"
+    t.string   "slug"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
+
+  add_index "room_types", ["slug"], :name => "index_room_types_on_slug", :unique => true
 
   create_table "sectors", :force => true do |t|
     t.string   "name"
     t.text     "description"
+    t.string   "slug"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
 
+  add_index "sectors", ["slug"], :name => "index_sectors_on_slug", :unique => true
+
   create_table "services", :force => true do |t|
     t.string   "name"
     t.text     "description"
+    t.string   "slug"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
+
+  add_index "services", ["slug"], :name => "index_services_on_slug", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -81,6 +121,9 @@ ActiveRecord::Schema.define(:version => 20130625211456) do
     t.string   "last_sign_in_ip"
     t.string   "cpf",                    :default => "", :null => false
     t.string   "name"
+    t.integer  "function_id"
+    t.integer  "sector_id"
+    t.string   "slug"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
   end
@@ -88,5 +131,6 @@ ActiveRecord::Schema.define(:version => 20130625211456) do
   add_index "users", ["cpf"], :name => "index_users_on_cpf", :unique => true
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+  add_index "users", ["slug"], :name => "index_users_on_slug", :unique => true
 
 end

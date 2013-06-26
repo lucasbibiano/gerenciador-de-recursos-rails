@@ -4,7 +4,12 @@ class CreateServices < ActiveRecord::Migration
       t.string :name
       t.text :description
 
+      t.string :slug
+
+
       t.timestamps
     end
+    
+    add_index :services, :slug, :unique => true
   end
 end

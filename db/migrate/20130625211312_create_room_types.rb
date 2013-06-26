@@ -4,7 +4,11 @@ class CreateRoomTypes < ActiveRecord::Migration
       t.string :name
       t.text :description
 
+      t.string :slug
+
       t.timestamps
     end
+
+    add_index :room_types, :slug, :unique => true
   end
 end

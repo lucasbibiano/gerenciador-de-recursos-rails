@@ -5,3 +5,17 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+hue = ReservationResource.new
+c = Reservation.new
+d = ObjectResource.new
+
+c.status = "potato"
+d.name = "zuero"
+
+hue.reservation = c
+hue.reservable = d
+
+hue.save
+
+puts c.resources
+puts d.reservations
