@@ -1,13 +1,12 @@
 OpenResRails::Application.routes.draw do
-  get "user/dashboard"
-
-  get "user/index"
-
-  get "home/index"
-
-  get "home/about"
-
   devise_for :users
+
+  root to: 'home#index'
+
+  get '/dashboard' => 'users#dashboard', as: :dashboard
+  get '/users' => 'users#index', as: :users
+
+  get '/about' => 'home#about'
 
   resources :functions
 
@@ -28,6 +27,9 @@ OpenResRails::Application.routes.draw do
 
 
   resources :reservations
+
+
+  resources :users, except: [:new, :create]
 
 
   # The priority is based upon order of creation:

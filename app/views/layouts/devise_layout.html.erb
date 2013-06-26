@@ -44,44 +44,20 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="/">OpenRes</a>
+          <a class="brand" href="/dashboard">OpenRes</a>
           <div class="container-fluid nav-collapse">
             <ul class="nav">
               <li><%= link_to "Página Inicial", "/"  %></li>
               <li><%= link_to "Sobre", "/about"  %></li>
             </ul>
-            <ul class="nav pull-right">
-              <li><%= link_to "Sair", destroy_user_session_path, method: :delete %></li>
-            </ul>
-          </div>
+          </div><!--/.nav-collapse -->
         </div>
       </div>
     </div>
 
     <div class="container-fluid">
       <div class="row-fluid">
-        <div class="span2">
-          <div class="well sidebar-nav">
-            <ul class="nav nav-list">
-              
-              <li class="nav-header">Menu</li>              
-              <!-- <li class="nav-sub-header">Insitucional</li> -->
-              <li><%= link_to "Home", "/"  %></li>
-              <li><%= link_to "Reservas", "/reservations"  %></li>
-              <li><%= link_to "Objetos", "/object_resources"  %></li>
-              <li><%= link_to "Setores", "/sectors"  %></li>
-              <li><%= link_to "Usuários", "/users"  %></li>
-              <li><%= link_to "Funções", "/functions"  %></li>
-              <li><%= link_to "Objetos", "/object_resources"  %></li>
-             <!--  <li class="nav-sub-header">Recursos</li> -->
-              <li><%= link_to "Lugares", "/places"  %></li>
-              <li><%= link_to "Serviços", "/services"  %></li>
-              <li><%= link_to "Tipos de sala", "/room_types"  %></li>      
-              
-            </ul>
-          </div><!--/.well -->
-        </div><!--/span-->
-        <div class="span9">
+        <div class="span12 pagination centered">
           <% flash.each do |name, msg| %>
             <% if msg.is_a?(String) %>
               <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
@@ -90,10 +66,9 @@
               </div>
             <% end %>
           <% end %>
-          
           <%= yield %>
         </div>
-      </div><!--/row-->
+      </div>
 
       <footer>
         <hr>
