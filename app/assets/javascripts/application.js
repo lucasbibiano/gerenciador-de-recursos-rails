@@ -13,4 +13,13 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+//= require bootstrap-datetimepicker
 //= require_tree .
+
+
+ $(function() {
+    $('.datetimepicker').datetimepicker({
+      format: 'dd/MM/yyyy hh:mm:ss',
+      language: 'pt-BR'
+    });
+});
