@@ -1,1 +1,24 @@
-<h1>Dashboard <%= current_user.email %></h1>
+<h2>Bem vindo, <%= current_user.name %></h2>
+
+<p>Com o menu ao lado você pode criar os dados que serão usados pela aplicação para que as reservas possam ser feitas.</p>
+
+<h2>Dicionário de termos:</h2>
+
+<dl class="dl-horizontal">
+  <dt><strong>Reservas:</strong></dt>
+  <dd>Lugar onde o administrador pode gerenciar as reservas, aprovando-as ou rejeitando-as.</dd>
+  <dt><strong>Objetos:</strong></dt>
+  <dd>Coisas que podem ser reservadas, como por exemplo: projetores e computadores.</dd>
+  <dt><strong>Setores:</strong></dt>
+  <dd>Unidades administrativas da instituição que usa o sistema.</dd>
+  <dt><strong>Usuários:</strong></dt>
+  <dd>Usuários do sistema.</dd>
+  <dt><strong>Funções:</strong></dt>
+  <dd>Cargos dentro da instituição que usa o sistema, são usados para definir as permissões de cada usuário.</dd>
+  <dt><strong>Lugares:</strong></dt>
+  <dd>Salas que podem ser reservadas, como por exemplo: laboratórios e salas de aula.</dd>
+  <dt><strong>Serviços:</strong></dt>
+  <dd>Serviços disponíveis em uma determinada sala, como por exemplo: internet e ar condicionado.</dd>
+  <dt><strong>Tipos de sala:</strong></dt>
+  <dd>Define de que tipo tal sala é, como por exemplo: a sala 3E3 é do tipo 'Sala de Aula'</dd>
+</dl>
