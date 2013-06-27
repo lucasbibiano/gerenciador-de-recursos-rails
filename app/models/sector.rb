@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Sector < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name, use: :slugged

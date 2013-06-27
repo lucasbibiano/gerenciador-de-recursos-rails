@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateObjectResourcesReservationsTable < ActiveRecord::Migration
   def self.up
     create_table :object_resources_reservations, :id => false do |t|

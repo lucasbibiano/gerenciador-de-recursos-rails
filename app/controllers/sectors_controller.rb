@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class SectorsController < ApplicationController
   # GET /sectors
   # GET /sectors.json

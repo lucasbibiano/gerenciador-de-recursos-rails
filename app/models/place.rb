@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Place < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name, use: :slugged
@@ -13,5 +14,6 @@ class Place < ActiveRecord::Base
   belongs_to :sector
   belongs_to :room_type
   has_many :reservations
+  has_many :object_resources
   has_and_belongs_to_many :services
 end

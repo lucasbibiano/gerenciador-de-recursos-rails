@@ -19,8 +19,18 @@
         <td><%= reservation.status %></td>
         <td><%=l reservation.created_at %></td>
         <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_reservation_path(reservation), :class => 'btn btn-mini' %>
+          <%= link_to t('.approve', :default => t("helpers.links.approve")),
+                      approve_path(reservation),
+                      :method => :post,
+                      :class => 'btn btn-mini btn-approve' %>
+          <%= link_to t('.reject', :default => t("helpers.links.reject")),
+                      reject_path(reservation),
+                      :method => :post,
+                      :class => 'btn btn-mini btn-reject' %>
+          <%= link_to t('.set_pending', :default => t("helpers.links.pending")),
+                      pending_path(reservation),
+                      :method => :post,
+                      :class => 'btn btn-mini btn-pending' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       reservation_path(reservation),
                       :method => :delete,

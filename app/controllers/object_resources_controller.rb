@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class ObjectResourcesController < ApplicationController
   # GET /object_resources
   # GET /object_resources.json

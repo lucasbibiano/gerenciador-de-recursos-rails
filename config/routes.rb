@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 OpenResRails::Application.routes.draw do
   devise_for :users
 
@@ -26,7 +27,11 @@ OpenResRails::Application.routes.draw do
   resources :services
 
 
-  resources :reservations
+  post 'reservations/approve/:id' => 'reservations#approve', as: :approve
+  post 'reservations/pending/:id' => 'reservations#pending', as: :pending
+  post 'reservations/reject/:id' => 'reservations#reject', as: :reject
+
+  resources :reservations, except: [:edit, :update]
 
 
   resources :users, except: [:new, :create]

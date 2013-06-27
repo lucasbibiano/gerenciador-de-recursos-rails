@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class FunctionsController < ApplicationController
   # GET /functions
   # GET /functions.json

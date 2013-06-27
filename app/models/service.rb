@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Service < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name, use: :slugged

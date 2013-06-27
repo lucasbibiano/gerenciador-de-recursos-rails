@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Permission < ActiveRecord::Base
   attr_accessible :action, :subject_class, :subject_id
 

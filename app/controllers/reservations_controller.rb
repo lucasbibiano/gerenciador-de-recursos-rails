@@ -1,4 +1,40 @@
+# -*- encoding : utf-8 -*-
 class ReservationsController < ApplicationController
+
+  def approve
+    @reservation = Reservation.find(params[:id])
+    
+    if Reservation.approve(@reservation)
+      flash[:notice] = "Reserva aprovada"
+    else
+      flash[:error] = "Há conflito de horário nas reservas"
+    end
+
+    @reservations = Reservation.all
+
+    redirect_to reservations_url
+  end
+
+  def reject
+    @reservation = Reservation.find(params[:id])
+    
+    Reservation.reject(@reservation)
+
+    @reservations = Reservation.all
+
+    redirect_to reservations_url, notice: "Reserva rejeitada"
+  end
+
+  def pending
+    @reservation = Reservation.find(params[:id])
+    
+    Reservation.set_pending(@reservation)
+
+    @reservations = Reservation.all
+
+    redirect_to reservations_url, notice: "Estado da reserva passou para 'aguardando'"
+  end
+
   # GET /reservations
   # GET /reservations.json
   def index
@@ -32,15 +68,16 @@ class ReservationsController < ApplicationController
     end
   end
 
-  # GET /reservations/1/edit
-  def edit
-    @reservation = Reservation.find(params[:id])
-  end
-
   # POST /reservations
   # POST /reservations.json
   def create
     @reservation = Reservation.new(params[:reservation])
+    @reservation.status = "Pending"
+    @reservation.user = current_user
+
+    place = Place.find_by_id(params[:reservation][:place_id])
+
+    @reservation.object_resources << place.object_resources if place
 
     respond_to do |format|
       if @reservation.save
@@ -48,22 +85,6 @@ class ReservationsController < ApplicationController
         format.json { render json: @reservation, status: :created, location: @reservation }
       else
         format.html { render action: "new" }
-        format.json { render json: @reservation.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PUT /reservations/1
-  # PUT /reservations/1.json
-  def update
-    @reservation = Reservation.find(params[:id])
-
-    respond_to do |format|
-      if @reservation.update_attributes(params[:reservation])
-        format.html { redirect_to @reservation, notice: 'Reservation was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
         format.json { render json: @reservation.errors, status: :unprocessable_entity }
       end
     end

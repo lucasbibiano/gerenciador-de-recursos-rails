@@ -12,11 +12,19 @@
   <dd><%= @reservation.status %></dd>
 </dl>
 
+<% if @reservation.place %>
+  <h3>Sala reservada</h3>
+
+  <%= render "places/places_table", places: [@reservation.place] %>
+<% end %>
+
+<h3>Objetos reservados</h3>
+
+<%= render "object_resources/object_resources_table", object_resources: @reservation.object_resources %>
+
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
               reservations_path, :class => 'btn'  %>
-  <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_reservation_path(@reservation), :class => 'btn' %>
   <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
               reservation_path(@reservation),
               :method => 'delete',

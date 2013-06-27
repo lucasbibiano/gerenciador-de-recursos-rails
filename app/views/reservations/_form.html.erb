@@ -24,7 +24,9 @@
     </div>
   </div>
 
-  <%= f.input :status %>
+  <%= f.association :place %>
+
+  <%= f.association :object_resources, as: :check_boxes %>
 
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>

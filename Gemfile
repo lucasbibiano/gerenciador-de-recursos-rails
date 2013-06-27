@@ -13,6 +13,12 @@ gem 'cancan'
 
 gem 'bootstrap-datetimepicker-rails'
 
+gem 'acts-as-taggable-on'
+
+group :development do
+  gem 'magic_encoding'
+end
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

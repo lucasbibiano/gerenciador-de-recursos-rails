@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateFunctions < ActiveRecord::Migration
   def change
     create_table :functions do |t|

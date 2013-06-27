@@ -10,7 +10,8 @@
   <dd><%= @object_resource.description %></dd>
   <dt><strong><%= model_class.human_attribute_name(:tombamento) %>:</strong></dt>
   <dd><%= @object_resource.tombamento %></dd>
-
+  <dt><strong><%= model_class.human_attribute_name(:categories) %>:</strong></dt>
+  <dd><%= @object_resource.category_list %></dd>
   <dt><strong><%= model_class.human_attribute_name(:place) %>:</strong></dt>
 
   <% if @object_resource.place %>

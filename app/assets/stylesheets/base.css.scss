@@ -8,7 +8,6 @@ footer{
 }
 
 .nav-sub-header{
- 
   font-size: 11px;
   font-weight: bold;
 }
@@ -16,4 +15,34 @@ footer{
 .nav-header{
   text-align: center;
 
+}
+
+.btn-reject { 
+  color: white;
+  background-color: red;
+
+  &:hover {
+    background-color: darken(red, 10%);
+    color: white;
+  }
+}
+
+.btn-approve {
+  color: white;
+  background-color: green;
+
+  &:hover {
+    background-color: darken(green, 10%);
+    color: white;
+  }
+}
+
+.btn-pending {
+  color: white;
+  background-color: blue;
+
+  &:hover {
+    background-color: darken(blue, 10%);
+    color: white;
+  }
 }
