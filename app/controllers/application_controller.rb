@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def layout_by_resource
-    if current_user
+    if user_signed_in?
       'application'
     elsif params[:controller] == 'home'
       'not_logged'
