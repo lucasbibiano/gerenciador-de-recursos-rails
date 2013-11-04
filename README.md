@@ -1,3 +1,3 @@
 <p>Gerenciador de Recursos para a sede do Instituto Metrópole Digital</p>
 
-lucasbibiano / gerenciador-de-recursos-rails
+[![Stories in Ready](https://badge.waffle.io/lucasbibiano/gerenciador-de-recursos-rails.png?label=ready)](http://waffle.io/lucasbibiano/gerenciador-de-recursos-rails)
